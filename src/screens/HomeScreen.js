@@ -41,6 +41,7 @@ export default function HomeScreen() {
   );
   const selectedCategoryIds = filterdCategory.map(c => c.id);
 
+  // 3. Filter expenses whose CategoryName matches selected month categories
   const filteredExpenses = expenseData.filter(exp =>
     selectedCategoryIds.includes(exp.CategoryName),
   );

@@ -5,12 +5,13 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import RNPickerSelect from 'react-native-picker-select';
 import React, { useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function AddExpenseModal() {
+  const navigation = useNavigation();
   const route = useRoute();
   const { categories } = route.params;
   const [saveExpense, setSaveExpense] = React.useState({
@@ -49,6 +50,8 @@ export default function AddExpenseModal() {
         expenseName: '',
         amount: '',
       });
+      navigation.pop(1);
+
       // console.log('Expense List : ', ExpenseList);
     }
   };
