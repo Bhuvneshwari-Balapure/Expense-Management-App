@@ -57,22 +57,27 @@ export default function HomeScreen() {
   );
   return (
     <View style={styles.home}>
-      <DateHeader onSelectMonth={setSelectedMonth} />
-      <BalanceCard total={MonthlyBalance} />
-      <AddCategory />
-      <CategoryList
-        categories={categories.filter(c =>
-          selectedMonth ? c.createdAt.startsWith(selectedMonth) : true,
-        )}
-        expense={expenseData}
-      />
-      {/* <BottomBar /> */}
-      <TouchableOpacity
-        style={styles.bottomBtn}
-        onPress={() => navigation.navigate('AddExpense', { categories })}
-      >
-        <Text style={{ color: 'white', fontSize: 40 }}>+</Text>
-      </TouchableOpacity>
+      <View style={{ paddingVertical: 2 }}>
+        <DateHeader onSelectMonth={setSelectedMonth} />
+        <BalanceCard total={MonthlyBalance} />
+        <AddCategory />
+      </View>
+      <View style={{ flex: 1 }}>
+        <CategoryList
+          categories={categories.filter(c =>
+            selectedMonth ? c.createdAt.startsWith(selectedMonth) : true,
+          )}
+          expense={expenseData}
+        />
+
+        {/* <BottomBar /> */}
+        <TouchableOpacity
+          style={styles.bottomBtn}
+          onPress={() => navigation.navigate('AddExpense', { categories })}
+        >
+          <Text style={{ color: 'white', fontSize: 40 }}>+</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -80,11 +85,18 @@ const styles = StyleSheet.create({
   home: {
     flex: 1,
     backgroundColor: 'gray',
+
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    // alignItems: 'flex-start',
+
+    paddingHorizontal: 15,
+    paddingTop: 10,
   },
   bottomBtn: {
     flex: 1,
     position: 'absolute',
-    bottom: 20,
+    bottom: 14,
     right: 20,
     backgroundColor: '#b5b5b5ff',
     width: 60,

@@ -33,7 +33,7 @@ export default function DateHeader({ onSelectMonth }) {
   return (
     <ScrollView
       horizontal
-      style={{ paddingVertical: 5 }}
+      // style={{ paddingVertical: 5 }}
       showsHorizontalScrollIndicator={false}
     >
       {months.map((mon, index) => (

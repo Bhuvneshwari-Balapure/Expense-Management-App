@@ -30,7 +30,7 @@ export default function AddExpenseModal() {
   };
   const handleSubmit = async () => {
     const { category, expenseName, amount } = saveExpense;
-    if (!category && !expenseName && !amount) {
+    if (!category || !expenseName || !amount) {
       alert('Please fill all the fields');
       return;
     } else {

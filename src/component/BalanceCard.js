@@ -30,8 +30,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     paddingHorizontal: 20,
     paddingVertical: 10,
+
     marginHorizontal: 30,
-    marginVertical: 5,
+    marginVertical: 10,
     borderRadius: 50,
   },
 });
