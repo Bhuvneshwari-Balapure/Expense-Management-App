@@ -85,8 +85,8 @@ export default function NewFile() {
     }
   };
   const handleCalculation = () => {
-    let n1 = parseFloat(value1);
-    let n2 = parseFloat(value2);
+    let n1 = Number(value1);
+    let n2 = Number(value2);
     let ans = 0;
     switch (operator) {
       case '+':

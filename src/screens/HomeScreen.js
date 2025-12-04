@@ -17,7 +17,8 @@ export default function HomeScreen() {
     loadCategory();
     loadExpense();
     // clearData();
-  }, [categories, expenseData]);
+  }, []);
+  // }, [categories, expenseData]);
   // const clearData = async () => {
   //   await AsyncStorage.clear();
   // };
@@ -25,6 +26,8 @@ export default function HomeScreen() {
     let data = await AsyncStorage.getItem('catList');
     if (data) {
       setCategories(JSON.parse(data));
+    } else {
+      setCategories([]);
     }
     // console.log('Home Screen Category', categories);
   };
@@ -33,6 +36,8 @@ export default function HomeScreen() {
     let ExpenseData = await AsyncStorage.getItem('expenseList');
     if (ExpenseData) {
       setexpenseData(JSON.parse(ExpenseData));
+    } else {
+      setexpenseData([]);
     }
     // console.log('Expense Data From Home Screen: ', expenseData);
   };
